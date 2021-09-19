@@ -79,11 +79,15 @@ namespace TwitchChatConnect.Example.MiniGame
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 if (alive_player_list.ContainsKey(chatCommand.User))
                 {
                     alive_player_list[chatCommand.User].ActivateRays();
                 }
                 
+=======
+                alive_player_list[TwitchUser]
+>>>>>>> Stashed changes
 =======
                 alive_player_list[TwitchUser]
 >>>>>>> Stashed changes
