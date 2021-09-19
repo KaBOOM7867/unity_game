@@ -65,6 +65,7 @@ namespace TwitchChatConnect.Example.MiniGame
         void OnChatCommandReceived(TwitchChatCommand chatCommand)
         {
             
+            
             if(chatCommand.Command == JOIN_COMMAND)
             {
                 string name = chatCommand.User.Username;
@@ -73,6 +74,10 @@ namespace TwitchChatConnect.Example.MiniGame
             }
             if (chatCommand.Command == ATTACK_COMMAND)
             {
+                if (alive_player_list.ContainsKey(chatCommand.User))
+                {
+                    alive_player_list[chatCommand.User].ActivateRays();
+                }
                 
                 Attack.SetActive(true);
                 Heal.SetActive(false);
@@ -83,6 +88,10 @@ namespace TwitchChatConnect.Example.MiniGame
             }
             if (chatCommand.Command == HEAL_COMMAND)
             {
+                if (alive_player_list.ContainsKey(chatCommand.User))
+                {
+                    alive_player_list[chatCommand.User].AddHealth();
+                }
                 Attack.SetActive(false);
                 Heal.SetActive(true);
                 Run.SetActive(false);
@@ -92,6 +101,10 @@ namespace TwitchChatConnect.Example.MiniGame
             }
             if (chatCommand.Command == RUN_COMMAND)
             {
+                if (alive_player_list.ContainsKey(chatCommand.User))
+                {
+                    alive_player_list[chatCommand.User].ActivateRunRays();
+                }
                 Attack.SetActive(false);
                 Heal.SetActive(false);
                 Run.SetActive(true);
@@ -101,6 +114,10 @@ namespace TwitchChatConnect.Example.MiniGame
             }
             if (chatCommand.Command == POWERUP_COMMAND)
             {
+                if (alive_player_list.ContainsKey(chatCommand.User))
+                {
+                    alive_player_list[chatCommand.User].GoToPowerup();
+                }
                 Attack.SetActive(false);
                 Heal.SetActive(false);
                 Run.SetActive(false);
@@ -110,6 +127,10 @@ namespace TwitchChatConnect.Example.MiniGame
             }
             if (chatCommand.Command == CENTER_COMMAND)
             {
+                if (alive_player_list.ContainsKey(chatCommand.User))
+                {
+                    alive_player_list[chatCommand.User].go_to_00();
+                }
                 Attack.SetActive(false);
                 Heal.SetActive(false);
                 Run.SetActive(false);
