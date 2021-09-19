@@ -10,6 +10,7 @@ using TwitchChatConnect.Example.MiniGame;
 
 public class competitor : MonoBehaviour
 {
+    public GameObject attackRays;
     public float damageDecrease = 25;
     float hp_regen_timer;
     private float hp = 100;
@@ -310,7 +311,10 @@ private void OnCollisionEnter(Collision other)
     
     }
 
-
+    public void ActivateRays()
+    {
+        attackRays.SetActive(true);
+    }
 
 }   
 
